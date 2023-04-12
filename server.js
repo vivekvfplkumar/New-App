@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const Product = require('./modules/ProductModule')
 const app = express()
 // add route in page/
+
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 // get data
+
 app.get('/', (req, res)=> {
     res.send('Hello World my name is vivek')
   })
@@ -74,8 +76,6 @@ app.delete('/products/:id', async(req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-
-
 
 mongoose.connect("mongodb+srv://demo1:demo1@cluster0.ou4tuyv.mongodb.net/demo1?retryWrites=true&w=majority")
 .then(()=>{
